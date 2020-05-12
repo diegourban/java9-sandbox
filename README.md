@@ -2,7 +2,10 @@
 
 Testando features do JDK 9
 
+https://openjdk.java.net/projects/jdk9/
+
 ## JEP 200: The Modular JDK (Jigsaw)
+
 https://openjdk.java.net/jeps/200
 
 O Objetivo foi dividir o JDK em módulos que podem ser combinados em tempo de compilação, build e runtime.
@@ -78,3 +81,11 @@ Compilando todos os módulos:
 
 Listando arquivos na pasta mods:
 `find mods -type f`
+
+## JEP 110: HTTP/2 Client (Incubator)
+
+https://openjdk.java.net/jeps/110
+
+Nova API HTTP que implementa HTTP/2 e WebSocket que pode substituir a API HttpURLConnection.
+A API estará disponível no modulo incubator.
+
