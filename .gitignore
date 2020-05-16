@@ -3,3 +3,6 @@
 *.iml
 mods
 target
+.classpath
+.project
+*.settings
