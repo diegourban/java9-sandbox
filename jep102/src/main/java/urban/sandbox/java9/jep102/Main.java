@@ -6,9 +6,9 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Optional;
 
-public class Jep102 {
+public class Main {
 
-	public static void main(final String[] args) throws IOException, InterruptedException {
+    public static void main(final String[] args) throws IOException, InterruptedException {
         final ProcessHandle self = ProcessHandle.current();
         final long PID = self.pid();
         final Info procInfo = self.info();
@@ -30,7 +30,7 @@ public class Jep102 {
         System.out.println("gedit pareint pid = " + geditProcess.toHandle().parent().get().pid());
 
         Thread.sleep(5000);
-        
+
         self.children().forEach(child -> {
             System.out.println("killing child pid = " + child.pid());
             boolean destroyed = child.destroy();
@@ -39,5 +39,5 @@ public class Jep102 {
 
         System.out.println("gedit isalive = " + geditProcess.isAlive());
     }
-    
+
 }

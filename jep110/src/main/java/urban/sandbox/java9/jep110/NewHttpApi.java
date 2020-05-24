@@ -18,7 +18,7 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 
-public class Jep110 {
+public class NewHttpApi {
 
     public static void main(String[] args) throws URISyntaxException, CertificateException, IOException, InterruptedException, KeyStoreException, NoSuchAlgorithmException, KeyManagementException {
         final HttpRequest request = HttpRequest.newBuilder().uri(new URI("https://postman-echo.com/get")).GET().build();
@@ -47,9 +47,9 @@ public class Jep110 {
 
     private static SSLContext buildPostmanContext() throws CertificateException, IOException, KeyStoreException, NoSuchAlgorithmException, KeyManagementException {
         final CertificateFactory cf = CertificateFactory.getInstance("X.509");
-        final InputStream certificateFile = Jep110.class.getResourceAsStream("/sca1b.crt");
+        final InputStream certificateFile = NewHttpApi.class.getResourceAsStream("/sca1b.crt");
         Certificate certificate;
-        try{
+        try {
             certificate = cf.generateCertificate(certificateFile);
         } finally {
             certificateFile.close();
@@ -57,7 +57,7 @@ public class Jep110 {
 
         final KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
         keyStore.load(null, null);
-        keyStore.setCertificateEntry("postman",  certificate);
+        keyStore.setCertificateEntry("postman", certificate);
 
         TrustManagerFactory tmFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
         tmFactory.init(keyStore);
